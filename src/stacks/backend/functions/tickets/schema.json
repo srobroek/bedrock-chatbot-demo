@@ -1,0 +1,478 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Powertools API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/tickets/user/{user_id}": {
+      "get": {
+        "summary": "GET /tickets/user/{user_id}",
+        "description": "Retrieves a list of all tickets for a specific user identified by `user_id`",
+        "operationId": "getTicketsByUserId",
+        "parameters": [
+          {
+            "description": "The unique identifier of the user whose tickets are to be retrieved",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "User Id",
+              "description": "The unique identifier of the user whose tickets are to be retrieved",
+              "example": "3e222218-ff31-47d1-a06a-616bbe98a402"
+            },
+            "name": "user_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "List of user tickets successfully retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service error occurred while fetching user tickets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/{ticket_id}": {
+      "get": {
+        "summary": "GET /tickets/{ticket_id}",
+        "description": "Retrieves detailed information about a specific ticket identified by `ticket_id`",
+        "operationId": "getTicketById",
+        "parameters": [
+          {
+            "description": "The unique identifier of the ticket to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticket Id",
+              "description": "The unique identifier of the ticket to retrieve",
+              "example": "3e222218-ff31-47d1-a06a-616bbe98a402"
+            },
+            "name": "ticket_id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "description": "ID of the user requesting the ticket",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "title": "User Id",
+                "description": "ID of the user requesting the ticket",
+                "example": "3e222218-ff31-47d1-a06a-616bbe98a402"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Ticket details successfully retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Ticket not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service error occurred while fetching ticket",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "PUT /tickets/{ticket_id}",
+        "description": "Updates an existing ticket's status and/or adds new comments identified by `ticket_id`",
+        "operationId": "updateTicket",
+        "parameters": [
+          {
+            "description": "The unique identifier of the ticket to update",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticket Id",
+              "description": "The unique identifier of the ticket to update",
+              "example": "3e222218-ff31-47d1-a06a-616bbe98a402"
+            },
+            "name": "ticket_id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_updateTicket"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Ticket successfully updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean",
+                  "title": "Return"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Ticket not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean",
+                  "title": "Return"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean",
+                  "title": "Return"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service error occurred while updating ticket",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean",
+                  "title": "Return"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets": {
+      "get": {
+        "summary": "GET /tickets",
+        "description": "Retrieves a list of all tickets in the system",
+        "operationId": "getAllTickets",
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "List of tickets successfully retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service error occurred while fetching tickets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "POST /tickets",
+        "description": "Creates a new support ticket in the system",
+        "operationId": "createTicket",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_createTicket"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Ticket successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service error occurred while creating ticket",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Return"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Body_createTicket": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "The title of the ticket",
+            "example": "Login Issue"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Detailed description of the ticket",
+            "example": "Unable to login to the application after password reset"
+          },
+          "user_id": {
+            "type": "string",
+            "title": "User Id",
+            "description": "ID of the user creating the ticket",
+            "example": "3e222218-ff31-47d1-a06a-616bbe98a402"
+          },
+          "comment": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Comment",
+            "description": "Initial comments on the ticket",
+            "example": "First attempt to login failed",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "description",
+          "user_id"
+        ],
+        "title": "Body_createTicket"
+      },
+      "Body_updateTicket": {
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "title": "User Id",
+            "description": "ID of the user updating the ticket",
+            "example": "3e222218-ff31-47d1-a06a-616bbe98a402"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TicketStatus"
+              }
+            ],
+            "description": "New status for the ticket",
+            "example": "in_progress",
+            "nullable": true
+          },
+          "comment": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Comment",
+            "description": "New comment to add to the ticket",
+            "example": "Investigating the login issue",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "user_id"
+        ],
+        "title": "Body_updateTicket"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "TicketStatus": {
+        "type": "string",
+        "enum": [
+          "open",
+          "closed",
+          "in_progress",
+          "resolved"
+        ],
+        "title": "TicketStatus"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
