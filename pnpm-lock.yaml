@@ -22,7 +22,7 @@ importers:
         version: 3.7.0(aws-cdk-lib@2.178.0(constructs@10.4.2))(constructs@10.4.2)
       cdk-nag:
         specifier: ^2.34.24
-        version: 2.34.24(aws-cdk-lib@2.178.0(constructs@10.4.2))(constructs@10.4.2)
+        version: 2.35.11(aws-cdk-lib@2.178.0(constructs@10.4.2))(constructs@10.4.2)
       constructs:
         specifier: ^10.0.5
         version: 10.4.2
@@ -907,12 +907,6 @@ packages:
     engines: {node: '>= 16.19.1'}
     peerDependencies:
       aws-cdk-lib: ^2.108.1
-      constructs: ^10.0.5
-
-  cdk-nag@2.34.24:
-    resolution: {integrity: sha512-L+fJ753m+nE91bC0w0nmQb1wPND57FxvswP4/c5K5hOUwil6Hp9G/uLtwu1Huf5WW3jKd9oVhiG+Sm5EOa4kBA==}
-    peerDependencies:
-      aws-cdk-lib: ^2.156.0
       constructs: ^10.0.5
 
   cdk-nag@2.35.11:
@@ -3328,11 +3322,6 @@ snapshots:
   caniuse-lite@1.0.30001695: {}
 
   cdk-aws-lambda-powertools-layer@3.7.0(aws-cdk-lib@2.178.0(constructs@10.4.2))(constructs@10.4.2):
-    dependencies:
-      aws-cdk-lib: 2.178.0(constructs@10.4.2)
-      constructs: 10.4.2
-
-  cdk-nag@2.34.24(aws-cdk-lib@2.178.0(constructs@10.4.2))(constructs@10.4.2):
     dependencies:
       aws-cdk-lib: 2.178.0(constructs@10.4.2)
       constructs: 10.4.2
