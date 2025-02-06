@@ -75,8 +75,6 @@ npx projen build && npx projen deploy --all
 
 Note: This stack is configured to always deploy in us-east-1 due to service availability. If you want to change this, edit `src/main.ts`
 
-- Onboard your domain to cloudfrontsigner (https://cloudfrontsigner.ninjas.security.a2z.com/)
-
 ## Testing locally
 
 - Authenticate to your AWS account where the services are deployed
