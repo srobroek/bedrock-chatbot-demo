@@ -28,3 +28,5 @@ jobs:
             fix
             chore
           requireScope: false
+          ignoreLabels: |
+            bot
