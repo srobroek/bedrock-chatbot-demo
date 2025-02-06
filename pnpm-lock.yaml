@@ -13,7 +13,7 @@ importers:
         version: 2.176.0-alpha.0(aws-cdk-lib@2.177.0(constructs@10.4.2))(constructs@10.4.2)
       '@cdklabs/generative-ai-cdk-constructs':
         specifier: ^0.1.289
-        version: 0.1.289(aws-cdk-lib@2.177.0(constructs@10.4.2))(constructs@10.4.2)
+        version: 0.1.291(aws-cdk-lib@2.177.0(constructs@10.4.2))(constructs@10.4.2)
       aws-cdk-lib:
         specifier: ^2.177.0
         version: 2.177.0(constructs@10.4.2)
@@ -271,11 +271,11 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@cdklabs/generative-ai-cdk-constructs@0.1.289':
-    resolution: {integrity: sha512-nZuy5yaDwU55kskDL9RVXtR87NJJeJuXe8GCFWA29Abq51ZhPfw4n7dXLp2WkJwCKGvF87oDB5vxqs/Sx6vSKg==}
-    engines: {node: '>= 18.12.0 <= 20.x'}
+  '@cdklabs/generative-ai-cdk-constructs@0.1.291':
+    resolution: {integrity: sha512-TuKyqxmMU1neT9QxvUQe8AuIYjZijK+41QEtDwXPnsIV2IAkxLaVsO1nz7UVPk7c+rtyyNTcCQVT3ouEV97sJg==}
+    engines: {node: '>= 18.12.0 <= 22.x'}
     peerDependencies:
-      aws-cdk-lib: ^2.174.0
+      aws-cdk-lib: ^2.177.0
       constructs: ^10.3.0
     bundledDependencies:
       - deepmerge
@@ -911,6 +911,12 @@ packages:
 
   cdk-nag@2.34.24:
     resolution: {integrity: sha512-L+fJ753m+nE91bC0w0nmQb1wPND57FxvswP4/c5K5hOUwil6Hp9G/uLtwu1Huf5WW3jKd9oVhiG+Sm5EOa4kBA==}
+    peerDependencies:
+      aws-cdk-lib: ^2.156.0
+      constructs: ^10.0.5
+
+  cdk-nag@2.35.11:
+    resolution: {integrity: sha512-SDlofc+MllD0b2tZmv/ABxwQLTFNn4mXxcyUQLsVLR1nDEYUsr95Ei/29oUeqFLrgVU15hrg0eVIFAz3vP5Bqg==}
     peerDependencies:
       aws-cdk-lib: ^2.156.0
       constructs: ^10.0.5
@@ -2592,10 +2598,10 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@cdklabs/generative-ai-cdk-constructs@0.1.289(aws-cdk-lib@2.177.0(constructs@10.4.2))(constructs@10.4.2)':
+  '@cdklabs/generative-ai-cdk-constructs@0.1.291(aws-cdk-lib@2.177.0(constructs@10.4.2))(constructs@10.4.2)':
     dependencies:
       aws-cdk-lib: 2.177.0(constructs@10.4.2)
-      cdk-nag: 2.34.24(aws-cdk-lib@2.177.0(constructs@10.4.2))(constructs@10.4.2)
+      cdk-nag: 2.35.11(aws-cdk-lib@2.177.0(constructs@10.4.2))(constructs@10.4.2)
       constructs: 10.4.2
 
   '@cspotcode/source-map-support@0.8.1':
@@ -3322,6 +3328,11 @@ snapshots:
       constructs: 10.4.2
 
   cdk-nag@2.34.24(aws-cdk-lib@2.177.0(constructs@10.4.2))(constructs@10.4.2):
+    dependencies:
+      aws-cdk-lib: 2.177.0(constructs@10.4.2)
+      constructs: 10.4.2
+
+  cdk-nag@2.35.11(aws-cdk-lib@2.177.0(constructs@10.4.2))(constructs@10.4.2):
     dependencies:
       aws-cdk-lib: 2.177.0(constructs@10.4.2)
       constructs: 10.4.2
