@@ -71,7 +71,7 @@ importers:
         version: 3.4.2
       projen:
         specifier: ^0.91.6
-        version: 0.91.8(constructs@10.4.2)
+        version: 0.91.13(constructs@10.4.2)
       ts-jest:
         specifier: ^29.2.5
         version: 29.2.5(@babel/core@7.26.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.26.0))(esbuild@0.24.2)(jest@29.7.0(@types/node@22.13.1)(ts-node@10.9.2(@types/node@22.13.1)(typescript@5.7.3)))(typescript@5.7.3)
@@ -820,6 +820,7 @@ packages:
   aws-cdk@2.178.0:
     resolution: {integrity: sha512-FcAByh9/HCgxEFE05434t+coYhOZSp92au77VSudBXhdgBrGPG28j1zSJY0XGPcH6eQxWaMWhSI6RzFK34R8MA==}
     engines: {node: '>= 14.15.0'}
+    deprecated: Every CLI command prints additional SDK traces regardless of the log verbosity setting
     hasBin: true
 
   babel-jest@29.7.0:
@@ -1974,8 +1975,8 @@ packages:
     resolution: {integrity: sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
-  projen@0.91.8:
-    resolution: {integrity: sha512-TWpxSiv3ZkJoZ2Y0hjnjwmKLlUnxmbPANmQ8yDdUeE6LIYoPmfU0Zw0ijNDI3uTq0BjIz5mFDkic94RW/1Hguw==}
+  projen@0.91.13:
+    resolution: {integrity: sha512-qs06tT0JtE0170QlfsSWgQ2syo5IbKlrCNQwvSezbjPrB2eDUXa+f/bnY70/4To+VcVkHuatgEPBusQLfa71+Q==}
     engines: {node: '>= 16.0.0'}
     hasBin: true
     peerDependencies:
@@ -4659,7 +4660,7 @@ snapshots:
       ansi-styles: 5.2.0
       react-is: 18.3.1
 
-  projen@0.91.8(constructs@10.4.2):
+  projen@0.91.13(constructs@10.4.2):
     dependencies:
       constructs: 10.4.2
 
